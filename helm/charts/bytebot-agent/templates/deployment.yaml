@@ -91,6 +91,26 @@ spec:
               name: {{ include "bytebot-agent.fullname" . }}-secrets
               key: gemini-api-key
         {{- end }}
+        {{- /* Doubao API Key */ -}}
+        {{- if .Values.env.DOUBAO_API_KEY }}
+        - name: DOUBAO_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "bytebot-agent.fullname" . }}-secrets
+              key: doubao-api-key
+        {{- else if .Values.apiKeys.doubao.useExisting }}
+        - name: DOUBAO_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.apiKeys.doubao.secretName }}
+              key: {{ .Values.apiKeys.doubao.secretKey }}
+        {{- else if .Values.apiKeys.doubao.value }}
+        - name: DOUBAO_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ include "bytebot-agent.fullname" . }}-secrets
+              key: doubao-api-key
+        {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
       {{- with .Values.nodeSelector }}

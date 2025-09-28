@@ -28,3 +28,20 @@ model_list:
     litellm_params:
       model: gemini/gemini-2.5-flash
       api_key: os.environ/GEMINI_API_KEY
+
+  # Doubao Models
+  - model_name: doubao-seed-1-6-250615
+    litellm_params:
+      model: openai/doubao-seed-1-6-250615
+      api_base: https://ark.cn-beijing.volces.com/api/v3
+      api_key: os.environ/DOUBAO_API_KEY
+  - model_name: doubao-seed-1.6-thinking
+    litellm_params:
+      model: openai/doubao-seed-1.6-thinking
+      api_base: https://ark.cn-beijing.volces.com/api/v3
+      api_key: os.environ/DOUBAO_API_KEY
+  - model_name: doubao-seed-1.6-flash
+    litellm_params:
+      model: openai/doubao-seed-1.6-flash
+      api_base: https://ark.cn-beijing.volces.com/api/v3
+      api_key: os.environ/DOUBAO_API_KEY

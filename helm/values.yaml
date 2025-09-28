@@ -56,6 +56,7 @@ bytebot-agent:
     ANTHROPIC_API_KEY: ""
     OPENAI_API_KEY: ""
     GEMINI_API_KEY: ""
+    DOUBAO_API_KEY: ""
   
   # New secret management structure - use this for better security
   apiKeys:
@@ -73,6 +74,11 @@ bytebot-agent:
       useExisting: false
       secretName: ""
       secretKey: "gemini-api-key"
+      value: ""  # Only used if useExisting is false
+    doubao:
+      useExisting: false
+      secretName: ""
+      secretKey: "doubao-api-key"
       value: ""  # Only used if useExisting is false
   resources:
     limits:
